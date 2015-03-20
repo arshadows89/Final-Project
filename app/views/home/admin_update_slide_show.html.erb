@@ -1,0 +1,33 @@
+
+<div id="update_slideshow">
+	<h2>List of All Slideshow Images</h2>
+</div>
+
+<div id="update_slideshow_button">
+	<%= link_to 'Add Slideshow', admin_create_slide_show_path, :class => 'btn btn-mini' %>
+</div>
+
+
+<div class="row">
+  <ul class="thumbnails files">
+<% unless Slideshow.all.empty? %>
+  <% Slideshow.all.each do |pic| %>
+    <li class="span3" id="picture_<%= pic.id %>">
+    <div class="thumbnail">
+      <%= image_tag pic.avatar.url %>
+      <div class="caption">
+        <p style="text-align: center;">
+        <%=
+          link_to "Delete picture", slideshow_path(pic.id),
+            :data => { :confirm => "Are you sure?" },
+            :method => :delete
+          %>
+
+        </p>
+      </div>
+    </div>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+</div>

@@ -1,0 +1,9 @@
+<div id="container-carousel">
+	<div id="carousel-div">
+		<div class="owl-carousel">
+			<% Slideshow.all.each do |x| %>
+				<div class="item"><img src="<%= x.avatar.url %>"></div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,250 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require owl.carousel
+ *= require owl.theme
+ */
+  @import "font-awesome-sprockets";
+  @import "font-awesome";
+
+#nav-bar ul {
+	list-style-type: none;
+	text-align: center;
+	width: 100%;
+	display: inline;
+	color: #838383;
+}
+
+footer {
+	color: #838383;
+	text-decoration: none;
+	font-family: 'Cinzel', serif;
+	letter-spacing: 1px;
+	line-height: 48px;
+	font-size: 20px;
+}
+
+#nav-bar ul a{
+	color: #838383;
+	text-decoration: none;
+	font-family: 'Cinzel', serif;
+	letter-spacing: 1px;
+	line-height: 48px;
+	font-size: 20px;
+}
+
+#nav-bar ul a:hover {
+	color: #343436;
+}
+
+#nav-bar li {
+	display: inline-block;
+	width: 14.2%;
+}
+
+#nav-logo {
+	letter-spacing: 1px;
+	line-height: 48px;
+	font-family: 'Tangerine', cursive;
+	font-size: 26px;
+}
+
+#nav-bar li:not(#nav-logo) {
+	border-left: 1px solid #e5e5e5;
+}
+
+#admin_home_buttons a {
+	color: #838383;
+}
+
+#admin_home_buttons i {
+	font-size: 100px;
+	border-radius: 15px;
+	padding: 10px;
+	border: 3px solid #838383;
+}
+
+li {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.span3 {
+	width: 23%;
+	display: inline-block;
+}
+
+.thumbnail {
+	border: 1px solid rgb(221, 221, 221);
+	padding: 5px;
+	margin: 25px;
+}
+
+div.thumbnail img {
+	width: 100%;
+}
+
+.owl-carousel .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#carousel-div {
+	width: 100%
+}
+
+#container-carousel {
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#update_slideshow {
+	text-align: center;
+}
+
+footer {
+	width: 100%;
+	text-align: center;
+	line-height: 32px;
+	position: fixed;
+	bottom: 0px;
+	margin-bottom: 20px;
+}
+
+#left_footer {
+	width: 49.5%;
+	display: inline-block;
+}
+
+#right_footer {
+	width: 49.5%;
+	display: inline-block;
+}
+
+div#nav-logo.footer-logo {
+	font-size: 50px;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+
+#signInBox{
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	margin: auto;
+	height: 50%;
+
+}
+#signInBox h1{
+    background: #43D1AF;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+#signInBox input[type="text"],
+#signInBox input[type="date"],
+#signInBox input[type="datetime"],
+#signInBox input[type="email"],
+#signInBox input[type="number"],
+#signInBox input[type="search"],
+#signInBox input[type="time"],
+#signInBox input[type="url"],
+#signInBox textarea,
+#signInBox select 
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+#signInBox input[type="text"]:focus,
+#signInBox input[type="date"]:focus,
+#signInBox input[type="datetime"]:focus,
+#signInBox input[type="email"]:focus,
+#signInBox input[type="number"]:focus,
+#signInBox input[type="search"]:focus,
+#signInBox input[type="time"]:focus,
+#signInBox input[type="url"]:focus,
+#signInBox textarea:focus,
+#signInBox select:focus
+{
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 1px solid #43D1AF;
+}
+
+#signInBox input[type="submit"],
+#signInBox input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #838383;
+    border-bottom: 2px solid black;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #fff;
+}
+#signInBox input[type="submit"]:hover,
+#signInBox input[type="button"]:hover{
+    background: #343436;
+}
+
+#item1, #item2 {
+	display: inline-block;
+	width: 49.5%;
+	text-align: center;
+}
+#row1, #row2 {
+	padding-top: 50px;
+}
+
+#item1 div, #item2 div {
+	padding-bottom: 10px;
+	color: #838383;
+	font-family: 'Cinzel', serif;
+}
+

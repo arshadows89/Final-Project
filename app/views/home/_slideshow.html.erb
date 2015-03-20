@@ -1,0 +1,6 @@
+<%= form_for @slideshow, url: "/admin_create_slide_show_post", method: "post", :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
+
+	<%= f.file_field :avatar %><br />
+	
+	<%= f.submit :class => 'formbuttons'%>
+<% end %>

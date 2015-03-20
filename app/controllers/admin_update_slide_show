@@ -1,0 +1,76 @@
+get the last thing we designed
+$("path").last()
+
+use ajax to then retrieve that info and save it to the
+database
+ask gill how he did ajax on our group project
+
+
+Need to make a admin login but not have a sign up...
+-do it through rails console
+
+create a login
+need to make users
+
+only admin can veiw certain pages
+
+sessions controller when loged in needs to redirect to admin page
+
+there needs to be a thing before adming_update_current_work that shows you a list of all the current works instead of just asking you to create a new one
+
+1 project has 1 galery
+galery has many pictures
+pictures has many galerys (becuase slideshow pictures can be used in other section????)
+
+
+
+
+need database for slideshow to store each image...
+when i click update slide show button it takes me to a page
+add new slideshow up top
+list of all slideshows + button to delete them
+
+
+
+
+
+
+
+Project has avatar
+
+
+Instead of Project use avatar... issue is first picture has to be the blueprint
+
+------------------
+gil to show me ajax for created slideshow form
+
+Tomorow goals is to navigate to the arcgis api by creating a new project blueprint
+
+follow guide and instead of users do it with projects... This should make it so projects will have a blueprint associated with them
+
+then follow the other guide for gallery
+
+gallaries are nested within each project though...
+
+click update new project icon... from there should show you a list of current project by name and blueprint (kind of like the one from the guide(steal there veiws and css))
+by clicking on the blueprint it takes you too the arcgis api where you then edit the blueprint ext...
+----------
+
+currently being redirected to root
+
+project model path might be wrong....
+
+to show projects 
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+
+so projects/new i make a project, which then directs me to that projects index
+<%= image_tag @user.avatar.url(:thumb) %>
+
+
+
+
+
+
+
+
