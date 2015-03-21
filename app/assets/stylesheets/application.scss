@@ -18,6 +18,10 @@
   @import "font-awesome-sprockets";
   @import "font-awesome";
 
+ html, body {
+ 	height: 100%;
+ }
+
 #nav-bar ul {
 	list-style-type: none;
 	text-align: center;
@@ -31,9 +35,16 @@ footer {
 	text-decoration: none;
 	font-family: 'Cinzel', serif;
 	letter-spacing: 1px;
-	line-height: 48px;
 	font-size: 20px;
+	width: 100%;
+	text-align: center;
+	line-height: 32px;
+	position: relative;
+	bottom: 0;
+	padding-bottom: 30px;
+	padding-top: 75px;
 }
+
 
 #nav-bar ul a{
 	color: #838383;
@@ -118,14 +129,7 @@ div.thumbnail img {
 	text-align: center;
 }
 
-footer {
-	width: 100%;
-	text-align: center;
-	line-height: 32px;
-	position: fixed;
-	bottom: 0px;
-	margin-bottom: 20px;
-}
+
 
 #left_footer {
 	width: 49.5%;
@@ -233,11 +237,6 @@ div#nav-logo.footer-logo {
     background: #343436;
 }
 
-#item1, #item2 {
-	display: inline-block;
-	width: 49.5%;
-	text-align: center;
-}
 #row1, #row2 {
 	padding-top: 50px;
 }
@@ -247,4 +246,49 @@ div#nav-logo.footer-logo {
 	color: #838383;
 	font-family: 'Cinzel', serif;
 }
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.masonry {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#fit-width .masonry {
+  margin: 0 auto;
+}
+
+.masonry .item {
+  width:  150px;
+  height: 150px;
+  float: left;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.item.w2 { width:  200px; }
+.item.w3 { width:  250px; }
+.item.w4 { width:  300px; }
+
+.item.h2 { height: 200px; }
+.item.h3 { height: 250px; }
+.item.h4 { height: 300px; }
+
+#home_past_work {
+	text-align: center;
+	font-weight: normal;
+	padding: 20px 0;
+	color: #838383;
+	font-family: 'Cinzel', serif;
+}
+
+
 

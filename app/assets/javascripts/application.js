@@ -21,12 +21,16 @@
 
 $(document).ready(function() {
  
- $(".owl-carousel").owlCarousel({
-      singleItem:true,
-      autoPlay:true,
-      pagination:false
- });
+	 $(".owl-carousel").owlCarousel({
+	      singleItem:true,
+	      autoPlay:true,
+	      pagination:false
+	 });
+
 });
 
+
+// http://masonry.desandro.com/masonry.pkgd.js added as external resource
+// https://rawgithub.com/desandro/classie/master/classie.js added
 
 
