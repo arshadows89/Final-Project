@@ -69,10 +69,23 @@ class HomeController < ApplicationController
     @slideshow = Slideshow.new
   end
 
+  def admin_create_past_work
+    @masonry = Masonry.new
+  end
+
   def admin_create_slide_show_post
     @slideshow = Slideshow.new(slide_show_params)
       if @slideshow.save
     redirect_to admin_update_slide_show_path
+      else 
+    redirect_to root_path
+    end
+  end
+
+  def admin_create_past_work_post
+    @masonry = Masonry.new(masonry_params)
+      if @masonry.save
+    redirect_to admin_update_past_work_path
       else 
     redirect_to root_path
     end
@@ -84,6 +97,10 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def masonry_params
+    params.require(:masonry).permit(:size, :avatar)
+  end
 
   def contact_params
     params.require(:contact).permit(:email, :phone_number, :street_address, :address)

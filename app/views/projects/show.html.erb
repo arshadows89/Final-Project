@@ -1,47 +1,73 @@
- <style>
-    #map_layer0 {
-      background-image: url(<%= @project.avatar.url %>);
+
+  <style>
+    header {margin: 1em 0 0 1.5em;}
+    body {font-family: arial;}
+    main {
+      background: url(<%= @project.avatar.url %>);
+      background-position: center;
       background-size: cover;
-      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      margin-left: auto;
+      margin-right: auto;
+      width: 900px;
+      height: 700px;
+
     }
- </style>
+    #resizable { 
+      top: 45px;
+      left: 500px;
+      width: 150px; 
+      height: 150px; 
+      padding: 0.5em; 
+      background-color: rgba(10, 10, 10, .1); 
+      border: 2px solid red;
+    }
+    #resizable h3 { text-align: center; margin: 0; padding: .5em; }
+  </style>
 
+  <script>
+  $(function() {
+    $( "#resizable" ).resizable({
+        resize: function( event, ui ) {
+          $('#resizable_event').text("you resized the box to " + ui.size.width + " pixels wide by " + ui.size.height + " pixels high.");
+        }
+      }).draggable({
+        stop: function( event, ui ) {
+          $('#resizable_event').text("you moved the box to " + ui.position.top + " pixels top by " + ui.position.left + " pixels left.");
+        }
+      });
+  });
+  $(document).ready(function(){
+    $("#new_room").submit(function(){
+      var room_name = $('#room_name').val();
+      var path_left = $("#resizable").css('left');
+      var path_top = $("#resizable").css('top');
+      var objects_height = $("#resizable").css('height');
+      var objects_width= $("#resizable").css('width');
+      $.post( "/projects/<%= @project.id %>/rooms", { room: {name: room_name, path_left: path_left, path_top: path_top, path_width: objects_width, path_height: objects_height, project_id: <%= @project.id %>} }, function() {}, "json" )
+    });
+});
+  </script>
 
+  <div id="update_slideshow_button">
+  <%= link_to 'back', projects_path, :class => 'btn btn-mini' %>
+</div>
 
- <body class="nihilo">
-  <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
-    <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
-      <span>Draw:<br /></span>
-      <!-- <button data-dojo-type="dijit/form/Button">Point</button> -->
-      <!-- <button data-dojo-type="dijit/form/Button">Multi Point</button> -->
-      <!-- <button data-dojo-type="dijit/form/Button">Line</button> -->
-      <!-- <button data-dojo-type="dijit/form/Button">Polyline</button> -->
-      <button data-dojo-type="dijit/form/Button">Polygon</button>
-      <!-- <button data-dojo-type="dijit/form/Button">Freehand Polyline</button> -->
-      <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
-      <!--The Arrow,Triangle,Circle and Ellipse types all draw with the polygon symbol-->
-      <!-- <button data-dojo-type="dijit/form/Button">Arrow</button> -->
-      <!-- <button data-dojo-type="dijit/form/Button">Triangle</button> -->
-      <!-- <button data-dojo-type="dijit/form/Button">Circle</button> -->
-      <button data-dojo-type="dijit/form/Button">Ellipse</button>
-
-     <%= form_for @room, url: room_project_path(@project), method: "post", :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
+</head>
+     <%= form_for [@project, @room], url: project_rooms_path(@project), :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
 
         <%= f.text_field :name, placeholder: "Room Name" %><br />
 
-        <%= f.submit :class => 'formbuttons', :id => 'submitButton', :remote => true %>
+        <%= f.submit :class => 'formbuttons', :id => 'submitButton', remote: true%>
 
       <% end %>
 
-      
- 
-    
-     <!--  retreive path and the project id -->
-    
+  <main>
+  <script>
 
-
-
+</script>
+    <div id="resizable">
     </div>
-    <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'\"></div>
-  </div>
-  </body>
+  </main>
+ 
+ 

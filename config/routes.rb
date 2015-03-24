@@ -19,17 +19,23 @@ Rails.application.routes.draw do
 
 
   get '/admin_update_past_work', to: 'home#admin_update_past_work'
+  get '/admin_create_past_work', to: 'home#admin_create_past_work'
+  post '/admin_create_past_work_post', to: 'home#admin_create_past_work_post'
+  delete '/admin_delete_past_work_path/:id', to: 'home#admin_delete_past_work_path'
+
 
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :projects
+  resources :projects do
+    resources :rooms
+  end
   post '/admin_create_room_post/:project_id', to: 'home#admin_create_room_post', as: 'room_project'
  
 
   resources :slideshows
 
-  resources :rooms
+  resources :pastworks
 
 end

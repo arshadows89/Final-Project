@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320153621) do
+ActiveRecord::Schema.define(version: 20150324182528) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "email"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20150320153621) do
     t.string   "token"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "masonries", force: :cascade do |t|
+    t.string   "size"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -55,10 +65,13 @@ ActiveRecord::Schema.define(version: 20150320153621) do
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
-    t.string   "path"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "project_id"
+    t.string   "path_height"
+    t.string   "path_width"
+    t.string   "path_top"
+    t.string   "path_left"
   end
 
   create_table "slideshows", force: :cascade do |t|

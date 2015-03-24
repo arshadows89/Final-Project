@@ -1,29 +1,38 @@
-
 <div id="update_slideshow">
-	<h2>Listing All Current Projects</h2>
+	<h2>List of all Pictures associated with <%= @rooms.name %></h2>
 </div>
 
 <div id="update_slideshow_button">
-  <%= link_to 'back', admin_home_path, :class => 'btn btn-mini' %>
+  <%= link_to 'back', projects_path, :class => 'btn btn-mini' %>
 </div>
 
+
+
+
+
+
+
+
+<!-- Everything below here isnt working -->
+
+
+
 <div id="update_slideshow_button">
-	<%= link_to 'Create New Current Work Project', admin_update_current_work_path, :class => 'btn btn-mini' %>
+	<%= link_to 'Add Picture', admin_create_past_work_path, :class => 'btn btn-mini' %>
 </div>
 
 
 <div class="row">
   <ul class="thumbnails files">
-<% unless Project.all.empty? %>
-  <% Project.all.each do |pic| %>
+<% unless Masonry.all.empty? %>
+  <% Masonry.all.each do |pic| %>
     <li class="span3" id="picture_<%= pic.id %>">
     <div class="thumbnail">
       <%= image_tag pic.avatar.url %>
       <div class="caption">
         <p style="text-align: center;">
-         <%= link_to "Edit Project", projects_path %> | 
         <%=
-          link_to "Delete Project", project_path(pic.id),
+          link_to "Delete picture", pastwork_path(pic.id),
             :data => { :confirm => "Are you sure?" },
             :method => :delete
           %>

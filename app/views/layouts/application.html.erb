@@ -2,43 +2,51 @@
 <html>
 <head>
   <title>Greenwich Development Group</title>
-  
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
   <link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-  <header>
-  <div id="nav-bar">
-	  	<ul>
-	  		<li></li>
-	  		<li id="nav-logo">Greenwich Development Group</li>
-				<li><a href="/#homePage" id="nav-home">Home</a></li>
-				<li><a href="/#currentWork" id="nav-current-work">Current Work</a></li>
-				<li><a href="/#pastWork" id="nav-past-work">Past Work</a></li>
-				<li><a href="/#contact" id-"nav-contact">Contact</a></li>
-				<li></li>
-			</ul>
-		</div>
-	</header>
+	<!-- <div id="main-wrapper"> -->
+	  <header>
+	  <div id="nav-bar">
+		  	<ul>
+		  		<li></li>
+		  		<li id="nav-logo">Greenwich Development Group</li>
+					<li><a href="/#homePage" id="nav-home">Home</a></li>
+					<li><a href="/#currentWork" id="nav-current-work">Current Work</a></li>
+					<li><a href="/#pastWork" id="nav-past-work">Past Work</a></li>
+					<li><a href="/#contact" id-"nav-contact">Contact</a></li>
+					<li></li>
+				</ul>
+			</div>
+			<div id="resizable_event">
+			</div>
+		</header>
 
-<%= yield %>
+	<%= yield %>
 
-	<footer>
-		<div id="nav-logo" class="footer-logo">Greenwich Development Group</div>
-		<div id="left_footer">
-			<div><%= Contact.last.email %></div>
-			<div><%= Contact.last.phone_number %></div>
-		</div>
-		<div id="right_footer">
-			<div><%= Contact.last.street_address %></div>
-			<div><%= Contact.last.address %></div>
-		</div>
-	</footer>
-
+		<footer>
+			<div id="nav-logo" class="footer-logo">Greenwich Development Group</div>
+			<div id="left_footer">
+				<div><%= Contact.last.email %></div>
+				<div><%= Contact.last.phone_number %></div>
+			</div>
+			<div id="right_footer">
+				<div><%= Contact.last.street_address %></div>
+				<div><%= Contact.last.address %></div>
+			</div>
+		</footer>
+	<!-- </div> -->
 </body>
 </html>

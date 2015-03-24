@@ -1,0 +1,36 @@
+<div id="update_slideshow">
+	<h2>List of all Pictures in Past Works</h2>
+</div>
+
+<div id="update_slideshow_button">
+  <%= link_to 'back', admin_home_path, :class => 'btn btn-mini' %>
+</div>
+
+<div id="update_slideshow_button">
+	<%= link_to 'Add Picture', admin_create_past_work_path, :class => 'btn btn-mini' %>
+</div>
+
+
+<div class="row">
+  <ul class="thumbnails files">
+<% unless Masonry.all.empty? %>
+  <% Masonry.all.each do |pic| %>
+    <li class="span3" id="picture_<%= pic.id %>">
+    <div class="thumbnail">
+      <%= image_tag pic.avatar.url %>
+      <div class="caption">
+        <p style="text-align: center;">
+        <%=
+          link_to "Delete picture", pastwork_path(pic.id),
+            :data => { :confirm => "Are you sure?" },
+            :method => :delete
+          %>
+
+        </p>
+      </div>
+    </div>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+</div>

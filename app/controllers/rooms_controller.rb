@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @rooms = current_room
+    @rooms = set_room
     
   end
 
@@ -17,21 +17,23 @@ class RoomsController < ApplicationController
 
   def new
   	@room = Room.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
     p current_project
   	@room = Room.new(room_params)
-    respond_to do |format|
-      format.html{
+      respond_to do |format|
         if @room.save
-          render project_path
+          format.html { redirect_to :back }
         else 
+          format.html{redirect_to projects_path }
+          format.js
           
         end
-      }
-      format.js
-    end
+      end
   end
 
   def update
@@ -58,7 +60,7 @@ class RoomsController < ApplicationController
 
 
   def room_params
-  	params.require(:room).permit(:name, :path, :project_id)
+  	params.require(:room).permit(:name, :path_height, :path_width, :path_top, :path_left, :project_id)
   end
 
   def current_room

@@ -20,6 +20,15 @@ Rails.application.configure do
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['greenwich-development-group'],
+    :access_key_id => ENV['AKIAJZ2WHEZZLMP2B2HA'],
+    :secret_access_key => ENV['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']
+  }
+}
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?

@@ -14,13 +14,42 @@
  *= require_self
  *= require owl.carousel
  *= require owl.theme
+
  */
   @import "font-awesome-sprockets";
   @import "font-awesome";
 
  html, body {
  	height: 100%;
+ 	margin: 0;
+	color: #838383;
+	font-family: 'Cinzel', serif;
+ 	padding: 0;
  }
+
+h1 {
+	font-family: 'Cinzel', serif;
+}
+
+h3 {
+	font-family: 'Cinzel', serif;
+}
+
+h2 {
+	font-family: 'Cinzel', serif;
+}
+
+a.btn.btn-mini {
+	padding-left: 25px;
+	font-family: 'Cinzel', serif;
+}
+
+ #main-wrapper {
+	box-sizing: border-box;
+	min-height: 100%;
+	padding: 0 0 100px;
+	position: relative;
+}
 
 #nav-bar ul {
 	list-style-type: none;
@@ -39,10 +68,15 @@ footer {
 	width: 100%;
 	text-align: center;
 	line-height: 32px;
-	position: relative;
+	position: static;
 	bottom: 0;
+	left: 0;
+	height: 175px;
 	padding-bottom: 30px;
-	padding-top: 75px;
+}
+
+div.row {
+	padding-bottom: 75px
 }
 
 
@@ -73,6 +107,10 @@ footer {
 
 #nav-bar li:not(#nav-logo) {
 	border-left: 1px solid #e5e5e5;
+}
+
+#admin_home_buttons {
+	padding-bottom: 115px;
 }
 
 #admin_home_buttons a {
@@ -239,6 +277,7 @@ div#nav-logo.footer-logo {
 
 #row1, #row2 {
 	padding-top: 50px;
+	text-align: center;
 }
 
 #item1 div, #item2 div {
@@ -264,23 +303,32 @@ body { font-family: sans-serif; }
   margin: 0 auto;
 }
 
-.masonry .item {
-  width:  150px;
-  height: 150px;
-  float: left;
-  background: #D26;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
+
+
+.item.w1 { width:  200px; }
+.item.w2 { width:  250px; }
+.item.w3 { width:  300px; }
+
+.item.h1 { height: 200px; }
+.item.h2 { height: 250px; }
+.item.h3 { height: 300px; }
+
+.item.w1 img { 
+	width:  200px;
+	padding: 5px
+}
+.item.w2 img { 
+	width:  250px;
+	padding: 5px
+}
+.item.w3 img { 
+	width:  300px;
+	padding: 5px;
 }
 
-.item.w2 { width:  200px; }
-.item.w3 { width:  250px; }
-.item.w4 { width:  300px; }
-
-.item.h2 { height: 200px; }
-.item.h3 { height: 250px; }
-.item.h4 { height: 300px; }
+.item.h1 img { height: 200px; }
+.item.h2 img { height: 250px; }
+.item.h3 img { height: 300px; }
 
 #home_past_work {
 	text-align: center;
@@ -290,5 +338,193 @@ body { font-family: sans-serif; }
 	font-family: 'Cinzel', serif;
 }
 
+#test {
+	padding-bottom: 125px;
+}
+
+#item1, #item2 {
+	display: inline-block;
+	width: 49.5%
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* ---------->>> thickbox specific link and font settings <<<------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
+#TB_window {
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #333333;
+}
+
+#TB_secondLine {
+	font: 10px Arial, Helvetica, sans-serif;
+	color:#666666;
+}
+
+#TB_window a:link {color: #666666;}
+#TB_window a:visited {color: #666666;}
+#TB_window a:hover {color: #000;}
+#TB_window a:active {color: #666666;}
+#TB_window a:focus{color: #666666;}
+
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* ---------->>> thickbox settings <<<-----------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
+#TB_overlay {
+	position: fixed;
+	z-index:100;
+	top: 0px;
+	left: 0px;
+	height:100%;
+	width:100%;
+}
+
+.TB_overlayMacFFBGHack {background: url(macFFBgHack.png) repeat;}
+.TB_overlayBG {
+	background-color:#000;
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+}
+
+* html #TB_overlay { /* ie6 hack */
+     position: absolute;
+     height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+}
+
+#TB_window {
+	position: fixed;
+	background: #ffffff;
+	z-index: 102;
+	color:#000000;
+	display:none;
+	border: 4px solid #525252;
+	text-align:left;
+	top:50%;
+	left:50%;
+}
+
+* html #TB_window { /* ie6 hack */
+position: absolute;
+margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+}
+
+#TB_window img#TB_Image {
+	display:block;
+	margin: 15px 0 0 15px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+}
+
+#TB_caption{
+	height:25px;
+	padding:7px 30px 10px 25px;
+	float:left;
+}
+
+#TB_closeWindow{
+	height:25px;
+	padding:11px 25px 10px 0;
+	float:right;
+}
+
+#TB_closeAjaxWindow{
+	padding:7px 10px 5px 0;
+	margin-bottom:1px;
+	text-align:right;
+	float:right;
+}
+
+#TB_ajaxWindowTitle{
+	float:left;
+	padding:7px 0 5px 10px;
+	margin-bottom:1px;
+}
+
+#TB_title{
+	background-color:#e8e8e8;
+	height:27px;
+}
+
+#TB_ajaxContent{
+	clear:both;
+	padding:2px 15px 15px 15px;
+	overflow:auto;
+	text-align:left;
+	line-height:1.4em;
+}
+
+#TB_ajaxContent.TB_modal{
+	padding:15px;
+}
+
+#TB_ajaxContent p{
+	padding:5px 0px 5px 0px;
+}
+
+#TB_load{
+	position: fixed;
+	display:none;
+	height:13px;
+	width:208px;
+	z-index:103;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -104px; /* -height/2 0 0 -width/2 */
+}
+
+* html #TB_load { /* ie6 hack */
+position: absolute;
+margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+}
+
+#TB_HideSelect{
+	z-index:99;
+	position:fixed;
+	top: 0;
+	left: 0;
+	background-color:#fff;
+	border:none;
+	filter:alpha(opacity=0);
+	-moz-opacity: 0;
+	opacity: 0;
+	height:100%;
+	width:100%;
+}
+
+* html #TB_HideSelect { /* ie6 hack */
+     position: absolute;
+     height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+}
+
+#TB_iframeContent{
+	clear:both;
+	border:none;
+	margin-bottom:-1px;
+	margin-top:1px;
+	_margin-bottom:1px;
+}
 
 

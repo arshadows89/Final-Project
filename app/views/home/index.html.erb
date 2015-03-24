@@ -12,30 +12,27 @@
 
 <h1 id= "home_past_work">Past Work</h1>
 <div id="test">
-<div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 50 }'>
-  <div class="item"></div>
-  <div class="item w2 h2"></div>
-  <div class="item h3"></div>
-  <div class="item h2"></div>
-  <div class="item w3"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item w2 h3"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item w2 h2"></div>
-  <div class="item w2"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h3"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
+	<div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 50 }'>
+		<% Masonry.all.each do |x| %>
+			<% if x.size == "1" %>
+				<div class="item w1 h1">
+			<% elsif x.size == "2" %>
+				<div class="item w2 h2">
+			<% elsif x.size == "3" %>
+				<div class="item w3 h3">
+			<% end%>
+			<a href="<%= x.avatar.url %>" title="" class="thickbox"><img src="<%= x.avatar.url %>" alt="Single Image"/></a>
+
+			</div>
+		<% end %>
+	</div>
+
 </div>
-</div>
+
+
+
+
+
+
+
 
