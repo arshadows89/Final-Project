@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fancybox
  *= require owl.carousel
  *= require owl.theme
 
@@ -355,7 +356,21 @@ body { font-family: sans-serif; }
 
 
 
+#home_current_work {
+	width: 100%;
+}
 
+#box {
+	width: 49.5%;
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	margin: 15px 0;
+}
+
+#box img {
+	width: 50%;
+}
 
 
 

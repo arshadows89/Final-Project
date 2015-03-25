@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     end
   end
   get '/project_info/:id', to: 'projects#project_info'
+  get '/project_show/:id', to: 'projects#project_show'
 
   post '/admin_create_room_post/:project_id', to: 'home#admin_create_room_post', as: 'room_project'
  

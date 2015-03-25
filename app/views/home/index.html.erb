@@ -8,7 +8,14 @@
 	</div>
 </div>
 
-
+<h1 id= "home_past_work">Current Work</h1>
+<div id="home_current_work">
+	<% Project.all.each do |x| %>
+		<div id="box">
+			<a href="/project_show/<%= x.id %>"><img src="<%= x.avatar.url %>"/></a>
+		</div>
+	<% end %>
+</div>
 
 <h1 id= "home_past_work">Past Work</h1>
 <div id="test">

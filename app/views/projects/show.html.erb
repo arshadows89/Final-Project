@@ -2,7 +2,7 @@
   <style>
     header {margin: 1em 0 0 1.5em;}
     body {font-family: arial;}
-    main {
+    #floorplan {
       background: url(<%= @project.avatar.url %>);
       background-position: center;
       background-size: cover;
@@ -11,17 +11,21 @@
       margin-right: auto;
       width: 900px;
       height: 700px;
+      position: relative;
 
     }
     #resizable { 
-      top: 45px;
-      left: 500px;
+      top: 285px;
+      left: 575px;
       width: 150px; 
       height: 150px; 
       padding: 0.5em; 
       background-color: rgba(10, 10, 10, .1); 
       border: 2px solid red;
     }
+    .ui-resizable {
+      position: absolute;
+    } 
     #resizable h3 { text-align: center; margin: 0; padding: .5em; }
   </style>
 
@@ -29,12 +33,10 @@
   $(function() {
     $( "#resizable" ).resizable({
         resize: function( event, ui ) {
-          $('#resizable_event').text("you resized the box to " + ui.size.width + " pixels wide by " + ui.size.height + " pixels high.");
         }
       }).draggable({
         stop: function( event, ui ) {
-          $('#resizable_event').text("you moved the box to " + ui.position.top + " pixels top by " + ui.position.left + " pixels left.");
-        }
+        } 
       });
   });
   $(document).ready(function(){
@@ -50,7 +52,7 @@
   </script>
 
   <div id="update_slideshow_button">
-  <%= link_to 'back', projects_path, :class => 'btn btn-mini' %>
+  <%= link_to 'back', "/project_info/#{@project.id}", :class => 'btn btn-mini' %>
 </div>
 
 </head>
@@ -63,10 +65,9 @@
       <% end %>
 
   <main>
-  <script>
-
-</script>
+   <div id="floorplan">
     <div id="resizable">
+    </div>
     </div>
   </main>
  

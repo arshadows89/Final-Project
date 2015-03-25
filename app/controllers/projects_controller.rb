@@ -14,7 +14,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @projects = current_project
     @room = Room.new
+  end
 
+  def project_show
+    @project = Project.find(params[:id])
   end
 
   def edit

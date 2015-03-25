@@ -23,13 +23,14 @@ class RoomsController < ApplicationController
   end
 
   def create
+    project = set_project
     p current_project
   	@room = Room.new(room_params)
       respond_to do |format|
         if @room.save
           format.html { redirect_to :back }
         else 
-          format.html{redirect_to projects_path }
+          format.html{redirect_to "/project_info/#{project.id}" }
           format.js
           
         end
@@ -43,8 +44,9 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+    project = set_project
   	@room.destroy
-  	redirect_to root_path
+  	redirect_to "/project_info/#{project.id}"
   end
 
 
