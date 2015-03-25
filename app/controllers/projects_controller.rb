@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
   	@projects = Project.all 
   end
 
+  def project_info
+    @project = set_project
+  end
+
   def show
     @project = Project.find(params[:id])
     @projects = current_project

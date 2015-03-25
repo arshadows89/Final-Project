@@ -1,29 +1,29 @@
 
 <div id="update_slideshow">
-	<h2>Listing All Current Projects</h2>
+  <h2>Listing All Current Rooms</h2>
 </div>
 
 <div id="update_slideshow_button">
-  <%= link_to 'back', admin_home_path, :class => 'btn btn-mini' %>
+  <%= link_to 'back', admin_update_current_work_home_path, :class => 'btn btn-mini' %>
 </div>
 
 <div id="update_slideshow_button">
-	<%= link_to 'Create New Current Work Project', admin_update_current_work_path, :class => 'btn btn-mini' %>
+  <%= link_to 'Create New Room', project_path(@project), :class => 'btn btn-mini' %>
 </div>
 
 
 <div class="row">
   <ul class="thumbnails files">
-<% unless Project.all.empty? %>
-  <% Project.all.each do |pic| %>
+<% unless Room.all.empty? %>
+  <% Room.all.each do |pic| %>
     <li class="span3" id="picture_<%= pic.id %>">
     <div class="thumbnail">
-      <%= image_tag pic.avatar.url %>
+      <%= pic.name %>
       <div class="caption">
         <p style="text-align: center;">
-         <%= link_to "Edit Project", "project_info/#{pic.id}" %> | 
+         <%= link_to "Edit Project", project_room_path(51, pic.id) %> | 
         <%=
-          link_to "Delete Project", project_path(pic.id),
+          link_to "Delete Project", project_room_path(51, pic.id),
             :data => { :confirm => "Are you sure?" },
             :method => :delete
           %>

@@ -8,7 +8,7 @@
 </div>
 
 <div id="update_slideshow_button">
-  <%= link_to 'Create New Room', project_path(51), :class => 'btn btn-mini' %>
+  <%= link_to 'Create New Room', project_path(@project), :class => 'btn btn-mini' %>
 </div>
 
 
@@ -21,9 +21,9 @@
       <%= pic.name %>
       <div class="caption">
         <p style="text-align: center;">
-         <%= link_to "Edit Project", project_room_path(51, pic.id) %> | 
+         <%= link_to "Edit Project", project_room_path(@project, pic.id) %> | 
         <%=
-          link_to "Delete Project", project_room_path(51, pic.id),
+          link_to "Delete Project", project_room_path(@project, pic.id),
             :data => { :confirm => "Are you sure?" },
             :method => :delete
           %>

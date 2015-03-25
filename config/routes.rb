@@ -33,6 +33,8 @@ Rails.application.routes.draw do
       resources :pictures
     end
   end
+  get '/project_info/:id', to: 'projects#project_info'
+
   post '/admin_create_room_post/:project_id', to: 'home#admin_create_room_post', as: 'room_project'
  
 
