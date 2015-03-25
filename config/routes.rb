@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :projects do
-    resources :rooms
+    resources :rooms do
+      resources :pictures
+    end
   end
   post '/admin_create_room_post/:project_id', to: 'home#admin_create_room_post', as: 'room_project'
  

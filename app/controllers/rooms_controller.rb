@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
 
   def show
     @rooms = set_room
-    
+    @projects = set_project
   end
 
   def edit
@@ -58,6 +58,9 @@ class RoomsController < ApplicationController
   	@room = Room.find(params[:id])
   end
 
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
 
   def room_params
   	params.require(:room).permit(:name, :path_height, :path_width, :path_top, :path_left, :project_id)

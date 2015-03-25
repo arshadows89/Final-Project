@@ -6,33 +6,21 @@
   <%= link_to 'back', projects_path, :class => 'btn btn-mini' %>
 </div>
 
-
-
-
-
-
-
-
-<!-- Everything below here isnt working -->
-
-
-
 <div id="update_slideshow_button">
-	<%= link_to 'Add Picture', admin_create_past_work_path, :class => 'btn btn-mini' %>
+  <%= link_to 'Add Picture', new_project_room_picture_path(@projects, @rooms), :class => 'btn btn-mini' %>
 </div>
-
 
 <div class="row">
   <ul class="thumbnails files">
-<% unless Masonry.all.empty? %>
-  <% Masonry.all.each do |pic| %>
+<% unless Room.find(@rooms).pictures.all.empty? %>
+  <% Room.find(@rooms).pictures.all.each do |pic| %>
     <li class="span3" id="picture_<%= pic.id %>">
     <div class="thumbnail">
-      <%= image_tag pic.avatar.url %>
+      <%= image_tag pic.image.url %>
       <div class="caption">
         <p style="text-align: center;">
         <%=
-          link_to "Delete picture", pastwork_path(pic.id),
+          link_to "Delete picture", project_room_picture_path(@projects, @rooms, pic.id),
             :data => { :confirm => "Are you sure?" },
             :method => :delete
           %>
