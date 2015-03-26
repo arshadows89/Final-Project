@@ -23,9 +23,7 @@
       height: 150px; 
       padding: 0.5em; 
     }
-    .red {
-      border: 2px solid red;
-    } 
+
     #resizable h3 { text-align: center; margin: 0; padding: .5em; }
   </style>
 
@@ -34,11 +32,11 @@
     <div id="floorplan">
       <% Project.find(@project.id).rooms.each do |x| %>
         <% if x.pictures.all.count == 1 %>
-          <a class="fancybox-thumbs red" data-fancybox-group="thumb<%= x.name %>" href="<%= x.pictures.all.first.image.url %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
+          <a class="fancybox-thumbs" data-fancybox-group="thumb<%= x.name %>" href="<%= x.pictures.all.first.image.url %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
          </a>
         <% else %>
           <% x.pictures.each do |y| %>
-            <a class="fancybox-thumbs red" data-fancybox-group="thumb<%= x.name %>" href="<%= y.image.url %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
+            <a class="fancybox-thumbs" data-fancybox-group="thumb<%= x.name %>" href="<%= y.image.url %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
             </a>
           <% end %>
         <% end %>
