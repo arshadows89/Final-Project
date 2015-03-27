@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <%= form_for @contact, url: "/admin_update_contact_info_post", method: "post", :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
 	
 	<%= f.text_field :phone_number, placeholder: "Phone Number" %><br />
@@ -9,4 +12,6 @@
 	<%= f.text_field :address, placeholder: "City, State, Zipcode" %><br />
 	
 	<%= f.submit "Submit", :class => 'formbuttons'%>
+<% end %>
+
 <% end %>

@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <div id="signInBox">
   <%= render 'project' %>
 </div>
@@ -7,3 +10,5 @@
 		position: fixed;
 	}
 </style>
+
+<% end %>

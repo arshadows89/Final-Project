@@ -14,6 +14,7 @@ class PicturesController < ApplicationController
   end
 
   def new
+    @current_user = current_user
     @room = set_room
     @project = set_project
   	@picture = Picture.new
@@ -45,6 +46,9 @@ class PicturesController < ApplicationController
   end
 
   private
+  def current_user
+    session[:user_id] ? User.find(session[:user_id]) :nil
+  end
 
   def set_room
     @room = Room.find(params[:room_id])

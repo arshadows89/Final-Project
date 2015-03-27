@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <%= form_for @masonry, url: "/admin_create_past_work_post", method: "post", remote: true, :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
 
 	<%= f.select(:size, options_for_select([['Small', 1], ['Medium', 2], ['Large', 3]], :selected => params[:size])) %>
@@ -5,4 +8,6 @@
 	<%= f.file_field :avatar %><br />
 	
 	<%= f.submit remote: true, :class => 'formbuttons'%>
+<% end %>
+
 <% end %>

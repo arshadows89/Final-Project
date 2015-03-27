@@ -1,6 +1,10 @@
+<% if @current_user.admin == true %>
+
 <%= form_for @picture, url: project_room_pictures_path(@project, @room), method: "post", :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
 
 	<%= f.file_field :image %><br />
 	
 	<%= f.submit "Submit", :class => 'formbuttons'%>
+<% end %>
+
 <% end %>

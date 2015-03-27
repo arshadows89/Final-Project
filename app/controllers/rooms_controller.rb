@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @rooms = set_room
     @projects = set_project
   end
@@ -51,6 +52,9 @@ class RoomsController < ApplicationController
 
 
   private
+  def current_user
+    session[:user_id] ? User.find(session[:user_id]) :nil
+  end
 
   def current_project
     session[:project_id] ? Project.find(session[:project_id]) :nil

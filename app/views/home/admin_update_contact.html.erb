@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <style>
 	footer {
 		position: fixed;
@@ -11,3 +14,5 @@
 <div id="signInBox">
   <%= render 'contact' %>
 </div>
+
+<% end %>

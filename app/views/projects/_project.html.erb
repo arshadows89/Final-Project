@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <%= form_for @project, url: '/projects#create', method: "post", :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
 	
 	<%= f.text_field :name, placeholder: "Project Name" %><br />
@@ -5,4 +8,6 @@
 	<%= f.file_field :avatar %><br />
 	
 	<%= f.submit "Submit", :class => 'formbuttons'%>
+<% end %>
+
 <% end %>

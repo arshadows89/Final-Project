@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <%= form_for @project, url: "/admin_update_current_work_post", method: "post", remote: true, :html => { :class => 'form-horizontal', multipart: true }  do |f| %>
 	
 	<%= f.text_field :name, placeholder: "Project Name" %><br />
@@ -5,4 +8,6 @@
 	<%= f.file_field :avatar %><br />
 	
 	<%= f.submit "Submit", remote: true, :class => 'formbuttons'%>
+<% end %>
+
 <% end %>

@@ -1,3 +1,6 @@
+<% if @current_user.admin == true %>
+
+
 <div id="update_slideshow">
 	<h2>List of all Pictures associated with <%= @rooms.name %></h2>
 </div>
@@ -33,3 +36,5 @@
 <% end %>
 </ul>
 </div>
+
+<% end %>

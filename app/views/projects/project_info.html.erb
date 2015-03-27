@@ -1,3 +1,5 @@
+<% if @current_user.admin == true %>
+
 
 <div id="update_slideshow">
   <h2>Listing All Current Rooms</h2>
@@ -14,8 +16,8 @@
 
 <div class="row">
   <ul class="thumbnails files">
-<% unless Room.all.empty? %>
-  <% Room.all.each do |pic| %>
+<% unless Project.find(@project).rooms.all.empty? %>
+  <% Project.find(@project).rooms.all.each do |pic| %>
     <li class="span3" id="picture_<%= pic.id %>">
     <div class="thumbnail">
       <%= pic.name %>
@@ -36,3 +38,5 @@
 <% end %>
 </ul>
 </div>
+
+<% end %>

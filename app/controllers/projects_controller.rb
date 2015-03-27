@@ -7,10 +7,12 @@ class ProjectsController < ApplicationController
   end
 
   def project_info
+    @current_user = current_user
     @project = set_project
   end
 
   def show
+    @current_user = current_user
     @project = Project.find(params[:id])
     @projects = current_project
     @room = Room.new
@@ -53,8 +55,9 @@ class ProjectsController < ApplicationController
   end
 
   private
-
-
+  def current_user
+    session[:user_id] ? User.find(session[:user_id]) :nil
+  end
 
   def set_project
   	@project = Project.find(params[:id])

@@ -9,11 +9,12 @@ class HomeController < ApplicationController
   end
 
   def admin_home
-
+    @current_user = current_user
   end
 
   def admin_update_contact
     @contact = Contact.new
+    @current_user = current_user
   end
 
   def admin_update_contact_info_post
@@ -22,11 +23,12 @@ class HomeController < ApplicationController
   end
 
   def admin_update_past_work
-
+    @current_user = current_user
   end
 
   def admin_update_current_work
   	@project = Project.new
+    @current_user = current_user
   end
 
   def admin_update_current_work_post
@@ -39,7 +41,7 @@ class HomeController < ApplicationController
   end
 
   def admin_update_slide_show
-
+    @current_user = current_user
   end
 
   def admin_update_slide_show_post
@@ -47,7 +49,7 @@ class HomeController < ApplicationController
   end
 
   def admin_update_current_work_home
-
+    @current_user = current_user
   end
 
   def admin_create_room_post
@@ -68,10 +70,13 @@ class HomeController < ApplicationController
 
   def admin_create_slide_show
     @slideshow = Slideshow.new
+    @current_user = current_user
   end
 
   def admin_create_past_work
     @masonry = Masonry.new
+    @current_user = current_user
+
   end
 
   def admin_create_slide_show_post
@@ -98,6 +103,10 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def current_user
+    session[:user_id] ? User.find(session[:user_id]) :nil
+  end
 
   def masonry_params
     params.require(:masonry).permit(:size, :avatar)
