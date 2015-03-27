@@ -12,6 +12,7 @@
  * MIT license
  */
 
+
 ( function( window ) {
 
 
@@ -2957,3 +2958,4 @@ if ( typeof define === 'function' && define.amd ) {
 }
 
 })( window );
+

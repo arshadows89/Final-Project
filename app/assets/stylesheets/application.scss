@@ -19,6 +19,8 @@
  */
   @import "font-awesome-sprockets";
   @import "font-awesome";
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
 
  html, body {
  	height: 100%;
@@ -60,6 +62,23 @@ a.btn.btn-mini {
 	color: #838383;
 }
 
+#footer-row1,
+#footer-row2,
+#footer-row3 {
+	color: #838383;
+	text-decoration: none;
+	font-family: 'Cinzel', serif;
+	letter-spacing: 1px;
+	font-size: 20px;
+	width: 100%;
+	text-align: center;
+	line-height: 32px;
+	position: static;
+	bottom: 0;
+	left: 0;
+	padding-bottom: 30px;
+}
+
 footer {
 	color: #838383;
 	text-decoration: none;
@@ -80,8 +99,12 @@ div.row {
 	padding-bottom: 75px
 }
 
+#nav-bar {
+	background-color: white;
+	border-color: white;
+}
 
-#nav-bar ul a{
+#nav-bar a{
 	color: #838383;
 	text-decoration: none;
 	font-family: 'Cinzel', serif;
@@ -90,24 +113,30 @@ div.row {
 	font-size: 20px;
 }
 
-#nav-bar ul a:hover {
+a#nav-current-work {
+	border: none;
+}
+
+#nav-bar a:hover {
 	color: #343436;
 }
 
-#nav-bar li {
-	display: inline-block;
-	width: 14.2%;
+#nav-bar .col-sm-2 {
+	text-align: center;
 }
-
 #nav-logo {
 	letter-spacing: 1px;
-	line-height: 48px;
+	line-height: 58px;
 	font-family: 'Tangerine', cursive;
 	font-size: 26px;
 }
 
-#nav-bar li:not(#nav-logo) {
+#nav-bar :not(#nav-logo) {
 	border-left: 1px solid #e5e5e5;
+}
+
+#nav-row {
+	padding-top: 35px;
 }
 
 #admin_home_buttons {
@@ -180,16 +209,37 @@ div.thumbnail img {
 	display: inline-block;
 }
 
-div#nav-logo.footer-logo {
+div#nav-logo.col-sm-10 {
 	font-size: 50px;
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
-	margin-left: 10%;
-	margin-right: 10%;
+
 	padding-top: 10px;
 	padding-bottom: 10px;
 
 }
+
+@media(max-width:767px){
+	div#footer-row1.row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	
+	#container-carousel {
+		margin-top: 335px;
+	}
+
+}
+
+
+div#footer-row2.row {
+	padding-bottom: 0;
+}
+
+// div#footer-row1.row {
+// 	margin-left: 0px;
+// 	margin-right: 0px;
+// }
 
 #signInBox{
     font: 95% Arial, Helvetica, sans-serif;
@@ -295,10 +345,7 @@ div#nav-logo.footer-logo {
 
 body { font-family: sans-serif; }
 
-.masonry {
-  max-width: 90%;
-  margin: 0 auto;
-}
+
 
 #fit-width .masonry {
   margin: 0 auto;
@@ -337,10 +384,18 @@ body { font-family: sans-serif; }
 	padding: 20px 0;
 	color: #838383;
 	font-family: 'Cinzel', serif;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 3%;
+	margin-right: 3%;
 }
 
 #test {
 	padding-bottom: 125px;
+	width: 90%;
+	margin: 0 auto;
 }
 
 #item1, #item2 {
@@ -360,20 +415,9 @@ body { font-family: sans-serif; }
 	width: 100%;
 }
 
-#box {
-	width: 49.5%;
-	display: inline-block;
-	text-align: center;
-	padding: 10px;
-	margin: 15px 0;
-}
-
-#box img {
+div#home_current_work img {
 	width: 50%;
 }
-
-
-
 
 
 
@@ -543,3 +587,70 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 }
 
 
+
+
+
+div.carousel-inner {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#carousel-example-generic.carousel.slide {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#testing_oh {
+	background: #F9FAFF;
+min-height: 100%;
+height: auto;
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+z-index: 10;
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+backface-visibility: hidden;
+perspective: 1000;
+
+}
+
+#nav-row {
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+
+#nav-bar {
+	margin-bottom: 0px;
+}
+
+#container-carousel {
+	position: fixed;
+	left: 10%
+}
+
+
+#nav-div {
+    width: 100%;
+    position: static;
+}
+
+#nav-wrap {
+	z-index: 999;
+    width: 100%;
+    position: static;
+    height: none !important;
+}
+
+a.btn.btn-mini {
+	border: none !important;
+}
+
+div.owl_item img {
+	top: 50%;
+	left: 50%;
+}

@@ -14,11 +14,28 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.turbolinks
+//= require bootstrap-sprockets
 //= require fancybox
 //= require owl.carousel
 //= require_tree .
 
-$('.fancybox-thumbs').fancybox({
+
+
+
+$(document).ready(function() {
+
+    var window_width = $( window ).resize(function() {
+                          
+                        });
+ 
+	 $(".owl-carousel").owlCarousel({
+	      singleItem:true,
+	      autoPlay:true,
+	      pagination:false,
+          autoHeight: true
+	 });
+
+     $('.fancybox-thumbs').fancybox({
         prevEffect : 'none',
         nextEffect : 'none',
 
@@ -34,20 +51,8 @@ $('.fancybox-thumbs').fancybox({
         }
     });
 
-
-$(document).ready(function() {
-
-    var window_width = $( window ).resize(function() {
-                          
-                        });
- 
-	 $(".owl-carousel").owlCarousel({
-	      singleItem:true,
-	      autoPlay:true,
-	      pagination:false
-	 });
-
 });
+
 
 
 // http://masonry.desandro.com/masonry.pkgd.js added as external resource
