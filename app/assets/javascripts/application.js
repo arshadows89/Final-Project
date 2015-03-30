@@ -16,6 +16,7 @@
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require fancybox
+//= require cocoon
 //= require owl.carousel
 //= require_tree .
 

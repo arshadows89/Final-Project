@@ -1,9 +1,9 @@
 class RoomsController < ApplicationController
-	before_action :set_room, only: [:edit, :update, :show, :destroy]
+  before_action :set_room, only: [:edit, :update, :show, :destroy]
 
   def index
-  	@room = current_room
-  	@rooms = Room.all 
+    @room = current_room
+    @rooms = Room.all 
   end
 
   def show
@@ -13,11 +13,11 @@ class RoomsController < ApplicationController
   end
 
   def edit
-  	@room = current_room
+    @room = current_room
   end
 
   def new
-  	@room = Room.new
+    @room = Room.new
     respond_to do |format|
       format.js
     end
@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
   def create
     project = set_project
     p current_project
-  	@room = Room.new(room_params)
+    @room = Room.new(room_params)
       respond_to do |format|
         if @room.save
           format.html { redirect_to :back }
@@ -39,15 +39,15 @@ class RoomsController < ApplicationController
   end
 
   def update
-  		if @room.update(room_params)
-  		redirect_to root_path
-  	end
+      if @room.update(room_params)
+      redirect_to root_path
+    end
   end
 
   def destroy
     project = set_project
-  	@room.destroy
-  	redirect_to "/project_info/#{project.id}"
+    @room.destroy
+    redirect_to "/project_info/#{project.id}"
   end
 
 
@@ -61,7 +61,7 @@ class RoomsController < ApplicationController
   end
 
   def set_room
-  	@room = Room.find(params[:id])
+    @room = Room.find(params[:id])
   end
 
   def set_project
@@ -69,7 +69,7 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-  	params.require(:room).permit(:name, :path_height, :path_width, :path_top, :path_left, :project_id)
+    params.require(:room).permit(:name, :path_height, :path_width, :path_top, :path_left, :project_id)
   end
 
   def current_room

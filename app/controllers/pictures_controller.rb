@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-	before_action :set_picture, only: [:edit, :update, :show, :destroy]
+  before_action :set_picture, only: [:edit, :update, :show, :destroy]
 
   def index
     @room = set_room
@@ -10,20 +10,20 @@ class PicturesController < ApplicationController
   end
 
   def edit
-  	@picture = current_picture
+    @picture = current_picture
   end
 
   def new
     @current_user = current_user
     @room = set_room
     @project = set_project
-  	@picture = Picture.new
+    @picture = Picture.new
   end
 
   def create
     @room = set_room
     @project = set_project
-  	@picture = Picture.new(picture_params)
+    @picture = Picture.new(picture_params)
     @picture.room = @room
       if @picture.save    
     redirect_to project_room_path(@project, @room)
@@ -33,16 +33,16 @@ class PicturesController < ApplicationController
   end
 
   def update
-  		if @picture.update(picture_params)
-  		redirect_to root_path
-  	end
+      if @picture.update(picture_params)
+      redirect_to root_path
+    end
   end
 
   def destroy
-  	@picture.destroy
+    @picture.destroy
     @room = set_room
     @project = set_project
-  	redirect_to project_room_path(@project, @room)
+    redirect_to project_room_path(@project, @room)
   end
 
   private
@@ -59,11 +59,11 @@ class PicturesController < ApplicationController
   end
 
   def set_picture
-  	@picture = Picture.find(params[:id])
+    @picture = Picture.find(params[:id])
   end
 
   def picture_params
-  	params.require(:picture).permit(:image)
+    params.require(:picture).permit(:image)
   end
 
   def current_picture

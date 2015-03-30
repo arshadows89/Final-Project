@@ -654,3 +654,27 @@ div.owl_item img {
 	top: 50%;
 	left: 50%;
 }
+
+	@media (max-width: 767px) {
+		#nav-wrap {
+			position: static !important;
+		}
+		#nav-div {
+			position: static !important;
+		}
+		#container-carousel {
+			position: static !important;
+			margin-top : 0 !important;
+		}
+
+		#testing_oh {
+			min-height: 0 !important;
+			position: static !important;
+		}
+		div#footer-row1.row {
+			padding-bottom: 0px !important;
+		}
+		.col-sm-6 {
+			padding: 15px 0 !important;
+		}
+	}

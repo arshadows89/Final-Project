@@ -29,6 +29,12 @@
       position: absolute;
     } 
     #resizable h3 { text-align: center; margin: 0; padding: .5em; }
+
+    <% Room.all.each do |x| %>
+      [data-fancybox-group="thumb<%= x.name %>"] {
+            background-color: rgba(<%= rand(0..255) %>,<%= rand(0..255) %> ,<%= rand(0..255) %>,0.2);
+      }
+    <% end %>
   </style>
 
   <script>
@@ -68,6 +74,17 @@
 
   <main>
    <div id="floorplan">
+      <% Project.find(@project.id).rooms.each do |x| %>
+        <% if x.pictures.all.count == 1 %>
+          <a data-fancybox-group="thumb<%= x.name %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
+         </a>
+        <% else %>
+          <% x.pictures.each do |y| %>
+            <a data-fancybox-group="thumb<%= x.name %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
+            </a>
+          <% end %>
+        <% end %>
+      <% end %>
     <div id="resizable">
     </div>
     </div>

@@ -14,6 +14,58 @@
 </div>
 
 
+
+  <style>
+    header {margin: 1em 0 0 1.5em;}
+    body {font-family: arial;}
+    #floorplan {
+      background: url(<%= @project.avatar.url %>);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-left: auto;
+      margin-right: auto;
+      width: 900px;
+      height: 700px;
+      position: relative;
+
+    }
+
+    #resizable { 
+      top: 285px;
+      left: 575px;
+      width: 150px; 
+      height: 150px; 
+      padding: 0.5em; 
+    }
+    <% Room.all.each do |x| %>
+      [data-fancybox-group="thumb<%= x.name %>"] {
+            background-color: rgba(<%= rand(0..255) %>,<%= rand(0..255) %> ,<%= rand(0..255) %>,0.2);
+      }
+    <% end %>
+
+    #resizable h3 { text-align: center; margin: 0; padding: .5em; }
+  </style>
+
+
+<h1 id= "home_past_work">Click a Room to Veiw</h1>
+  <main>
+    <div id="floorplan">
+      <% Project.find(@project.id).rooms.each do |x| %>
+        <% if x.pictures.all.count == 1 %>
+          <a class="fancybox-thumbs" data-fancybox-group="thumb<%= x.name %>" href="<%= x.pictures.all.first.image.url %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
+         </a>
+        <% else %>
+          <% x.pictures.each do |y| %>
+            <a class="fancybox-thumbs" data-fancybox-group="thumb<%= x.name %>" href="<%= y.image.url %>" style="position: absolute; left: <%= x.path_left %>; top: <%= x.path_top %>; width: <%= x.path_width %>; height: <%= x.path_height %>;">        
+            </a>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </main>
+
+
 <div class="row">
   <ul class="thumbnails files">
 <% unless Project.find(@project).rooms.all.empty? %>

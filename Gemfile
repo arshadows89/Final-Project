@@ -38,6 +38,8 @@ gem "paperclip", "~> 4.2"
 gem 'rmagick'
 gem 'aws-sdk', '<2.0'
 
+gem 'cocoon'
+
 gem 'bootstrap-sass', '~> 3.3.4'
 
 group :development, :test do

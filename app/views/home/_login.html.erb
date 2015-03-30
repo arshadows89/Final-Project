@@ -1,4 +1,3 @@
-<% if @current_user.admin == true %>
 
 
 <%= form_tag(signin_path, method: :post) do %>
@@ -12,4 +11,3 @@
 	<%= submit_tag "Login", class: 'buttonStyle' %>
 <% end %>
 
-<% end %>

@@ -21,10 +21,15 @@
 	<div class="container-fluid">
 		<% @test_count = 0 %>
 		<% Project.all.each do |x| %>
-			<% if @test_count == 0 %>
+			<% if ((x == Project.last) and (@test_count == 0)) %>
 				<div id="footer-row1" class="row">
 					<div id="<%= @test_count %>" class="col-sm-6"><a href="/project_show/<%= x.id %>"><img src="<%= x.avatar.url %>"/></a></div>
 					<% @test_count = 1 %>
+					</div>
+			<% elsif @test_count == 0 %>
+				<div id="footer-row1" class="row">
+					<div id="<%= @test_count %>" class="col-sm-6"><a href="/project_show/<%= x.id %>"><img src="<%= x.avatar.url %>"/></a></div>
+					<% @test_count = 1 %>					
 			<% elsif @test_count == 1 %>
 					<div id="<%= @test_count %>" class="col-sm-6"><a href="/project_show/<%= x.id %>"><img src="<%= x.avatar.url %>"/></a></div>
 					<% @test_count = 0 %>
@@ -91,33 +96,41 @@
 		});
 	});
 
-	$(document).ready(function() {
-		var previousScroll = 0,
-		    headerOrgOffset = $('#nav-div').height();
+	var mq = window.matchMedia('all and (min-width: 767px)');
+	if(mq.matches) {
+		$(document).ready(function() {
+			var previousScroll = 0,
+			    headerOrgOffset = $('#nav-div').height();
 
-		$('#nav-wrap').height($('#nav-div').height());
-		if (document.getElementById("testing_oh")) {
-			$(window).scroll(function () {
-			    var currentScroll = $(this).scrollTop();
-			    if (currentScroll > headerOrgOffset) {
-			        if (currentScroll > previousScroll) {
-			            $('#nav-wrap').slideUp();
-			        } else {
-			            $('#nav-wrap').slideDown();
-			        }
-			    } 
-			    previousScroll = currentScroll;
-			});
-		};
-	});
+			$('#nav-wrap').height($('#nav-div').height());
+			if (document.getElementById("testing_oh")) {
+				$(window).scroll(function () {
+				    var currentScroll = $(this).scrollTop();
+				    if (currentScroll > headerOrgOffset) {
+				        if (currentScroll > previousScroll) {
+				            $('#nav-wrap').slideUp();
+				        } else {
+				            $('#nav-wrap').slideDown();
+				        }
+				    } 
+				    previousScroll = currentScroll;
+				});
+			};
+		});
+	} else {
+	    // the width of browser is less then 700px
+	}
+
+    
+
 </script>
 
 <style>
-#nav-wrap {
-  position: fixed;
-}
+	#nav-wrap {
+	  position: fixed;
+	}
 
-#nav-div {
-  position: absolute;
-}
+	#nav-div {
+	  position: absolute;
+	}
 </style>
