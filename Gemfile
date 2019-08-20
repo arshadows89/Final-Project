@@ -34,7 +34,7 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem "paperclip", "~> 4.2"
+gem "paperclip", "~> 4.3"
 gem 'rmagick'
 gem 'aws-sdk', '<2.0'
 
